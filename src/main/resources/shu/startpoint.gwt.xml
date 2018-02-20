@@ -23,4 +23,13 @@
   <source path='client' />
   <source path='shared' />
 
+  <!-- This will give us shorter obfuscated CSS class names. We guarantee
+       that there will be no class names that will conflict with /M.+/ -->
+  <set-configuration-property name="CssResource.obfuscationPrefix" value="M" />
+  <set-configuration-property name="CssResource.enableGss" value="true" />
+  <set-configuration-property name="CssResource.gssDefaultInUiBinder" value="true" />
+  
+  <inherits name="com.google.gwt.logging.Logging" />
+  <set-property name="gwt.logging.logLevel" value="ALL"/>
+  <set-property name="gwt.logging.enabled" value="TRUE"/>
 </module>
