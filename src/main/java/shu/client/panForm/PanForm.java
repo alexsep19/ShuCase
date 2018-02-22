@@ -12,9 +12,13 @@ public class PanForm extends Composite{
 	
 	public PanForm(){
 	   DockLayoutPanel pan = new DockLayoutPanel(Unit.PX);
-//	   HTMLPanel title = new HTMLPanel("Форма");
-//	   pan.addNorth( title, startpoint.TITLE_WIDTH);
-//	   pan.add(new HTMLPanel("Фjjjjjjjjjj"));
-//	   pan.
+	   
+	   HTMLPanel title = new HTMLPanel("Форма");
+	   pan.addNorth( title, startpoint.TITLE_WIDTH);
+	   pan.add(new HTMLPanel("Фjjjjjjjjjj"));
+	   pan.setVisible(true);
+	   initWidget(pan);
+	   pan.setStylePrimaryName("titleBorder");
+	   title.setStyleName("titleHeader");
 	}
 }

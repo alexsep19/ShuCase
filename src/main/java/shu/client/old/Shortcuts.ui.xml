@@ -50,10 +50,10 @@
       <g:north size='26'>
          <g:HTMLPanel><div class='{style.navHeader}'>Навигация</div></g:HTMLPanel>
       </g:north>
-       <g:center>
-         <startpoint:Navs ui:field='navs'/>
+<!--       <g:center>
+           <startpoint:Navs ui:field='navs'/>
       </g:center>
-      
+ -->     
   </g:DockLayoutPanel>
 <!-- 
   <g:StackLayoutPanel styleName='{style.shortcuts}' unit='EM'>

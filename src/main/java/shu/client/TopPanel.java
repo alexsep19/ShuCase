@@ -40,6 +40,7 @@ public class TopPanel extends Composite {
     initWidget(binder.createAndBindUi(this));
   }
 
+  
   @UiHandler("aboutLink")
   void onAboutClicked(ClickEvent event) {
     // When the 'About' item is selected, show the AboutDialog.

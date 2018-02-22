@@ -16,6 +16,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
+import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Label;
@@ -24,8 +25,10 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.SplitLayoutPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.Widget;
 
-import shu.client.nav.Shortcuts;
+import shu.client.nav.NavPan;
+import shu.client.nav.Navs;
 import shu.client.panForm.PanForm;
 
 import com.google.gwt.user.client.Window;
@@ -49,15 +52,13 @@ public class startpoint implements EntryPoint {
 	    GWT.<GlobalResources>create(GlobalResources.class).css().ensureInjected();
     // Create the UI defined in startpoint.ui.xml.
 //	    DockLayoutPanel outer = binder.createAndBindUi(this);
+	    FlowPanel center = new FlowPanel();
 	    DockLayoutPanel outer = new DockLayoutPanel(Unit.PX);
 	    outer.addNorth(new TopPanel(), 40);
 	    SplitLayoutPanel split = new SplitLayoutPanel();
-	    split.addWest(new Shortcuts(), 192);
-	       DockLayoutPanel pan = new DockLayoutPanel(Unit.PX);
-		   HTMLPanel title = new HTMLPanel("Форма");
-		   pan.addNorth( title, startpoint.TITLE_WIDTH);
-		   pan.add(new HTMLPanel("Фjjjjjjjjjj"));
-	    split.add(pan);
+	    split.addWest(new NavPan(center), 192);
+//	    split.add(new PanForm());
+	    split.add(center);
 	    outer.add(split);
 
 	 // Get rid of scrollbars, and clear out the window's built-in margin,
@@ -70,4 +71,5 @@ public class startpoint implements EntryPoint {
 	    RootLayoutPanel root = RootLayoutPanel.get();
 	    root.add(outer);
   }
+  
 }
