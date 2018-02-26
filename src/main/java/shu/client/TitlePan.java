@@ -4,17 +4,18 @@ import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.Widget;
 
-abstract public class TitlePan extends Composite{
+public class TitlePan extends Composite{
 	private DockLayoutPanel pan = new DockLayoutPanel(Unit.PX);
 	
-	public DockLayoutPanel getPan() {
-		return pan;
-	}
-
-	public void setPan(DockLayoutPanel pan) {
-		this.pan = pan;
-	}
+//	public DockLayoutPanel getPan() {
+//		return pan;
+//	}
+//
+//	public void setPan(DockLayoutPanel pan) {
+//		this.pan = pan;
+//	}
 
 	public TitlePan() {	}
 	
@@ -28,5 +29,7 @@ abstract public class TitlePan extends Composite{
 		   titlePan.setStyleName("titleHeader");
 
 	}
-
+    public void addBody(Widget w){
+    	pan.add(w);
+    }
 }

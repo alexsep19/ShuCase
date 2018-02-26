@@ -8,7 +8,7 @@ public class PanTab1 extends TitlePan{
 
 	public PanTab1() {
 		super("Таблица");
-		getPan().add(new HTMLPanel("ывпыпапаj"));
+//		getPan().add(new HTMLPanel("ывпыпапаj"));
 	}
 
 }

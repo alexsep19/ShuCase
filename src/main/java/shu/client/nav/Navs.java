@@ -1,5 +1,7 @@
 package shu.client.nav;
 
+import java.util.Optional;
+import java.util.function.Supplier;
 import java.util.logging.Logger;
 
 import com.google.gwt.core.client.GWT;
@@ -18,11 +20,13 @@ import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Tree;
 import com.google.gwt.user.client.ui.TreeItem;
 
+import shu.client.TitlePan;
 import shu.client.startpoint;
 import shu.client.nav.Navs.Images;
 
 public class Navs extends Composite{
 	FlowPanel center;
+	TitlePan panForm, panTab;
 	  /**
 	   * Specifies the images that will be bundled for this Composite and specify
 	   * that tree's images should also be included in the same bundle.
@@ -83,18 +87,29 @@ public class Navs extends Composite{
 	    addImageItem(root2, "panForm", images.inbox(), new TreeItemAdv(){
 	    			@Override
 	    			protected void doSelectionAction() {
+	    				showPanel(getPanForm());
 //	    				rootLogger.log(Level.INFO, "doSelectionAction() ");
 	    }});
 	    addImageItem(root2, "panTab", images.inbox(), new TreeItemAdv(){
 			@Override
 			protected void doSelectionAction() {
+				showPanel(getPanTab());
 //				rootLogger.log(Level.INFO, "doSelectionAction() ");
         }});
 	    root2.setState(true);
+	    root2.getTree().getItem(1).setSelected(true);
 	    
 	    initWidget(tree);
+	    center.add(tree);
 	  }
 
+	  TitlePan getPanForm(){
+		  if (panForm == null){
+			  panForm = new TitlePan("Форма");
+			  panForm.addBody(new HTMLPanel("Фjjjjjjjjjj"));
+		  }
+		  return panForm;
+	  }
 	  /**
 	   * A helper method to simplify adding tree items that have attached images.
 	   * {@link #addImageItem(TreeItem, String, ImageResource) code}
@@ -131,6 +146,7 @@ public class Navs extends Composite{
 	  }
 	  
 	  void showPanel(TitlePan pan){
-		  pan.
+		  center.clear();
+		  center.add(pan);
 	  }
 }
