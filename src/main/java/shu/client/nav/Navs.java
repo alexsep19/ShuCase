@@ -93,7 +93,7 @@ public class Navs extends Composite{
 	    addImageItem(root2, "panTab", images.inbox(), new TreeItemAdv(){
 			@Override
 			protected void doSelectionAction() {
-				showPanel(getPanTab());
+//				showPanel(getPanTab());
 //				rootLogger.log(Level.INFO, "doSelectionAction() ");
         }});
 	    root2.setState(true);
