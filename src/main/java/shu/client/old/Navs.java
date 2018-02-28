@@ -27,7 +27,6 @@ import com.google.gwt.user.client.ui.Tree;
 import com.google.gwt.user.client.ui.TreeItem;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 /**
  * A tree displaying a set of email folders.
  */

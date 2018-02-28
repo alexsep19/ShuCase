@@ -1,4 +1,4 @@
-package shu.client.nav;
+package shu.client.old;
 
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.user.client.ui.Composite;
@@ -14,7 +14,7 @@ public class NavPan extends Composite{
       DockLayoutPanel pan = new DockLayoutPanel(Unit.PX);
   	  HTMLPanel title = new HTMLPanel("Навигация");
   	  pan.addNorth( title, startpoint.TITLE_WIDTH);
-  	  pan.add(new Navs(center));
+//  	  pan.add(new Navs(center));
   	  initWidget(pan);
 	  pan.setStylePrimaryName("titleBorder");
 	  title.setStyleName("titleHeader");

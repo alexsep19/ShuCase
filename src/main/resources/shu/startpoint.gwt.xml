@@ -32,4 +32,9 @@
   <inherits name="com.google.gwt.logging.Logging" />
   <set-property name="gwt.logging.logLevel" value="ALL"/>
   <set-property name="gwt.logging.enabled" value="TRUE"/>
+  
+  <add-linker name="xsiframe"/>
+  <set-configuration-property name="devModeRedirectEnabled" value="true"/>
+  <set-property name="compiler.useSourceMaps" value="true" />
+  
 </module>

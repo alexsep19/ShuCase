@@ -8,7 +8,7 @@ public class NavPan1 extends TitlePan{
 
 	public NavPan1(FlowPanel center) {
 		super("Навигация");
-//		getPan().add(new Navs(center));
+		addBody(new Navs(center));
 	}
 
 }

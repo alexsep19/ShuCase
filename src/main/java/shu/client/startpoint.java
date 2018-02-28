@@ -27,7 +27,7 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 
-import shu.client.nav.NavPan;
+import shu.client.nav.NavPan1;
 import shu.client.nav.Navs;
 import shu.client.panForm.PanForm;
 
@@ -56,7 +56,7 @@ public class startpoint implements EntryPoint {
 	    DockLayoutPanel outer = new DockLayoutPanel(Unit.PX);
 	    outer.addNorth(new TopPanel(), 40);
 	    SplitLayoutPanel split = new SplitLayoutPanel();
-	    split.addWest(new NavPan(center), 192);
+	    split.addWest(new NavPan1(center), 192);
 //	    split.add(new PanForm());
 	    split.add(center);
 	    outer.add(split);

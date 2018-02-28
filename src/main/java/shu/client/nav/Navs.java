@@ -25,7 +25,7 @@ import shu.client.startpoint;
 import shu.client.nav.Navs.Images;
 
 public class Navs extends Composite{
-	FlowPanel center;
+	FlowPanel _center;
 	TitlePan panForm, panTab;
 	  /**
 	   * Specifies the images that will be bundled for this Composite and specify
@@ -62,7 +62,7 @@ public class Navs extends Composite{
 	  public Navs(FlowPanel center) {
 //		final Logger rootLogger = Logger.getLogger("");
 //		rootLogger.log(Level.INFO, "DDDDDDDDDDFFFF");
-		this.center = center;
+		_center = center;
 	    Images images = GWT.create(Images.class);
 
 	    tree = new Tree(images);
@@ -87,7 +87,7 @@ public class Navs extends Composite{
 	    addImageItem(root2, "panForm", images.inbox(), new TreeItemAdv(){
 	    			@Override
 	    			protected void doSelectionAction() {
-	    				showPanel(getPanForm());
+//	    				showPanel(getPanForm());
 //	    				rootLogger.log(Level.INFO, "doSelectionAction() ");
 	    }});
 	    addImageItem(root2, "panTab", images.inbox(), new TreeItemAdv(){
@@ -100,7 +100,7 @@ public class Navs extends Composite{
 	    root2.getTree().getItem(1).setSelected(true);
 	    
 	    initWidget(tree);
-	    center.add(tree);
+//	    center.add(tree);
 	  }
 
 	  TitlePan getPanForm(){
@@ -146,7 +146,7 @@ public class Navs extends Composite{
 	  }
 	  
 	  void showPanel(TitlePan pan){
-		  center.clear();
-		  center.add(pan);
+		  _center.clear();
+		  _center.add(pan);
 	  }
 }
