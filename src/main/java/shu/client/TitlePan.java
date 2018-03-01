@@ -9,23 +9,14 @@ import com.google.gwt.user.client.ui.Widget;
 public class TitlePan extends Composite{
 	private DockLayoutPanel pan = new DockLayoutPanel(Unit.PX);
 	
-//	public DockLayoutPanel getPan() {
-//		return pan;
-//	}
-//
-//	public void setPan(DockLayoutPanel pan) {
-//		this.pan = pan;
-//	}
-
 	public TitlePan() {	}
 	
 	public TitlePan(String title) {
 		   HTMLPanel titlePan = new HTMLPanel(title);
 		   pan.addNorth( titlePan, startpoint.TITLE_WIDTH);
-//		   pan.add(new HTMLPanel("ывпыпапаj"));
 		   pan.setVisible(true);
 		   initWidget(pan);
-		   pan.setStylePrimaryName("titleBorder");
+		   pan.setStyleName("titleBorder");
 		   titlePan.setStyleName("titleHeader");
 
 	}

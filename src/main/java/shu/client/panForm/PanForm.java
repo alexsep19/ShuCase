@@ -1,24 +1,32 @@
 package shu.client.panForm;
 
-import com.google.gwt.dom.client.Style.Unit;
-import com.google.gwt.safehtml.shared.SafeHtml;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.DockLayoutPanel;
-import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.Widget;
 
-import shu.client.startpoint;
+import shu.client.tools.HPanel;
 
-public class PanForm extends Composite{
+public class PanForm extends HPanel{
+      private static PanForm instance;
+      private PanForm(int w, int h, String header){
+    	  super(w, h, header);
+      }
 	
-	public PanForm(){
-	   DockLayoutPanel pan = new DockLayoutPanel(Unit.PX);
-	   
-	   HTMLPanel title = new HTMLPanel("Форма");
-	   pan.addNorth( title, startpoint.TITLE_WIDTH);
-	   pan.add(new HTMLPanel("Фjjjjjjjjjj"));
-	   pan.setVisible(true);
-	   initWidget(pan);
-	   pan.setStylePrimaryName("titleBorder");
-	   title.setStyleName("titleHeader");
-	}
+      public static PanForm getInstance(int w, int h, String header){
+    	  if (instance == null) {
+    		  instance = new PanForm(w, h, header);
+    		  instance.addHeader();
+    	  }
+    	  return instance;
+      }
+      
+      
+      public Widget setContent(Widget widget){
+    	  setContentWidget(widget);
+    	  return instance;
+      }
+//	public PanForm(int w, int h, String header){
+//		super(w, h, header);
+//		addHeader();
+//		setContentWidget();
+//	}
+    
 }

@@ -3,33 +3,14 @@ package shu.client;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Unit;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.event.dom.client.KeyCodes;
-import com.google.gwt.event.dom.client.KeyUpEvent;
-import com.google.gwt.event.dom.client.KeyUpHandler;
 import com.google.gwt.resources.client.ClientBundle;
 import com.google.gwt.resources.client.CssResource;
-import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
-import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.HTML;
-import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
-import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.SimpleLayoutPanel;
 import com.google.gwt.user.client.ui.SplitLayoutPanel;
-import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.VerticalPanel;
-import com.google.gwt.user.client.ui.Widget;
 
-import shu.client.nav.NavPan1;
-import shu.client.nav.Navs;
-import shu.client.panForm.PanForm;
+import shu.client.nav.NavPan;
 
 import com.google.gwt.user.client.Window;
 
@@ -52,12 +33,11 @@ public class startpoint implements EntryPoint {
 	    GWT.<GlobalResources>create(GlobalResources.class).css().ensureInjected();
     // Create the UI defined in startpoint.ui.xml.
 //	    DockLayoutPanel outer = binder.createAndBindUi(this);
-	    FlowPanel center = new FlowPanel();
+	    SimpleLayoutPanel center = new SimpleLayoutPanel();
 	    DockLayoutPanel outer = new DockLayoutPanel(Unit.PX);
 	    outer.addNorth(new TopPanel(), 40);
 	    SplitLayoutPanel split = new SplitLayoutPanel();
-	    split.addWest(new NavPan1(center), 192);
-//	    split.add(new PanForm());
+	    split.addWest(new NavPan(center), 192);
 	    split.add(center);
 	    outer.add(split);
 

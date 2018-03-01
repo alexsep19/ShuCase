@@ -17,15 +17,18 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.SimpleLayoutPanel;
 import com.google.gwt.user.client.ui.Tree;
 import com.google.gwt.user.client.ui.TreeItem;
 
 import shu.client.TitlePan;
 import shu.client.startpoint;
 import shu.client.nav.Navs.Images;
+import shu.client.panForm.FormContent;
+import shu.client.panForm.PanForm;
 
 public class Navs extends Composite{
-	FlowPanel _center;
+	SimpleLayoutPanel _center;
 	TitlePan panForm, panTab;
 	  /**
 	   * Specifies the images that will be bundled for this Composite and specify
@@ -59,7 +62,7 @@ public class Navs extends Composite{
 	  /**
 	   * Constructs a new mailboxes widget.
 	   */
-	  public Navs(FlowPanel center) {
+	  public Navs(SimpleLayoutPanel center) {
 //		final Logger rootLogger = Logger.getLogger("");
 //		rootLogger.log(Level.INFO, "DDDDDDDDDDFFFF");
 		_center = center;
@@ -87,29 +90,38 @@ public class Navs extends Composite{
 	    addImageItem(root2, "panForm", images.inbox(), new TreeItemAdv(){
 	    			@Override
 	    			protected void doSelectionAction() {
-//	    				showPanel(getPanForm());
+	    				showPanel(getPanForm());
 //	    				rootLogger.log(Level.INFO, "doSelectionAction() ");
 	    }});
 	    addImageItem(root2, "panTab", images.inbox(), new TreeItemAdv(){
 			@Override
 			protected void doSelectionAction() {
-//				showPanel(getPanTab());
+				showPanel(getPanTab());
 //				rootLogger.log(Level.INFO, "doSelectionAction() ");
         }});
 	    root2.setState(true);
-	    root2.getTree().getItem(1).setSelected(true);
+	    root2.getChild(0).setSelected(true);
 	    
 	    initWidget(tree);
-//	    center.add(tree);
+	    showPanel(getPanForm());
 	  }
 
 	  TitlePan getPanForm(){
 		  if (panForm == null){
 			  panForm = new TitlePan("Форма");
-			  panForm.addBody(new HTMLPanel("Фjjjjjjjjjj"));
+			  panForm.addBody(PanForm.getInstance(150, 130, "header")/*.setContent(new FormContent())*/);
 		  }
 		  return panForm;
 	  }
+	  
+	  TitlePan getPanTab(){
+		  if (panTab == null){
+			  panTab = new TitlePan("Таблица");
+			  panTab.addBody(new HTMLPanel("Фjjjjjjjjjj Таблица"));
+		  }
+		  return panTab;
+	  }
+	  
 	  /**
 	   * A helper method to simplify adding tree items that have attached images.
 	   * {@link #addImageItem(TreeItem, String, ImageResource) code}
@@ -147,6 +159,7 @@ public class Navs extends Composite{
 	  
 	  void showPanel(TitlePan pan){
 		  _center.clear();
+//		  _center.setStylePrimaryName("padding5px");
 		  _center.add(pan);
 	  }
 }
