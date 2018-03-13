@@ -2,7 +2,7 @@ package shu.client.panTab;
 
 import com.google.gwt.user.client.ui.HTMLPanel;
 
-import shu.client.TitlePan;
+import shu.client.tools.TitlePan;
 
 public class PanTab1 extends TitlePan{
 

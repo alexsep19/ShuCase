@@ -37,4 +37,6 @@
   <set-configuration-property name="devModeRedirectEnabled" value="true"/>
   <set-property name="compiler.useSourceMaps" value="true" />
   
+  <extend-property name="locale" values="ru"/>
+  
 </module>

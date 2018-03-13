@@ -1,18 +1,13 @@
 /** Shu's     
 */
-.padding5px{
-	padding: 5px;
+.padding1px{
+	padding: 1px;
 }
 .titleBorder {
     border-left: 1px solid #999;
     border-right: 1px solid #999;
     border-bottom: 1px solid #999;
-    /*padding: 50px;*/
-    position: relative;
-    left: 5px;
-    right: 5px;
-    top: 5px;
-    bottom: 5px;
+    padding: 50px;
   }
   /**	background: url(../pic/gradient_bg_dark.png) repeatStyle='Horizontal';*/
 .titleHeader {
