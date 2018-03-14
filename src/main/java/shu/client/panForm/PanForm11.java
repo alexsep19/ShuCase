@@ -1,12 +1,14 @@
 package shu.client.panForm;
 
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Widget;
 
 import shu.client.tools.HPanel;
 
-public class PanForm extends HPanel{
+public class PanForm11 extends HPanel{
 //      private static PanForm instance;
-      public PanForm(int w, int h, String header){
+      public PanForm11(int w, int h, String header){
     	  super(w, h, header);
     	  addHeader();
       }
@@ -19,15 +21,20 @@ public class PanForm extends HPanel{
 //    	  return instance;
 //      }
       
-      public Widget setContent(){return this;};
-      public Widget setContent(Widget widget){
-    	  setContentWidget(widget);
-    	  return this;
-      }
+      public void setContent(){};
+//      public Widget setContent(){return this;};
+//      public Widget setContent(Widget widget){
+//    	  setContentWidget(widget);
+//    	  return this;
+//      }
+      
+//      public void addBut(ClickHandler clickHandler){
+//      }
 //	public PanForm(int w, int h, String header){
 //		super(w, h, header);
 //		addHeader();
 //		setContentWidget();
 //	}
-    
+
+   
 }

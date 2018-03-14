@@ -6,6 +6,8 @@ import java.util.logging.Logger;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Unit;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.logical.shared.SelectionEvent;
 import com.google.gwt.event.logical.shared.SelectionHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
@@ -34,13 +36,15 @@ import com.google.gwt.user.client.ui.TreeItem;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.datepicker.client.DateBox;
 
+import shu.client.tools.HPanel;
 import shu.client.tools.TitlePan;
 import shu.client.startpoint;
+import shu.client.comps.Dialog1butt;
 import shu.client.comps.PasswordTxtBox;
 import shu.client.comps.TxtBox;
 import shu.client.nav.Navs.Images;
 import shu.client.panForm.FormContent;
-import shu.client.panForm.PanForm;
+import shu.client.panForm.PanForm11;
 
 public class Navs extends Composite{
 	SimpleLayoutPanel _center;
@@ -127,9 +131,9 @@ public class Navs extends Composite{
 			  FlexTable ft = new FlexTable();
 			  FlexCellFormatter fcf = ft.getFlexCellFormatter();
 			  ft.setCellPadding(2);
-//			  ft.setCellSpacing(2);
-			  ft.setWidget(0, 0, new PanForm(200, 150, "header1"){
-				  public Widget setContent(){
+			  HPanel panForm1 = new HPanel(200, 150, "header1"){
+				  @Override
+				  public void setContent(){
 					  TxtBox tbSurname = new TxtBox();
 					  tbSurname.setWidth("100px");
 					  tbSurname.setMaxLength(30);
@@ -166,11 +170,28 @@ public class Navs extends Composite{
 					  layout.setWidget(2, 1, turnCheck);
 					  layout.setWidget(3, 1, turnField);
 				      setContentWidget(layout);
-					  return this;
+//					  return this;
 				  }
-			  	}.setContent());
-			  ft.setWidget(0, 1, new PanForm(200, 150, "header2"){
-				  public Widget setContent(){
+			  	};
+			  panForm1.setContent();
+			  panForm1.addBut(new ClickHandler() {
+				  @Override
+				  public void onClick(ClickEvent event) {
+					  Dialog1butt dialog1butt = new Dialog1butt("ФФФФФФФФФФФ"){
+						  @Override
+						  protected Widget getDetails(){
+							  FlexTable ft = new FlexTable();
+						  }
+					  };
+					  dialog1butt.center();
+					  dialog1butt.show();
+				  }
+			  });
+			  ft.setWidget(0, 0, panForm1); 
+			  
+			  HPanel panForm2 = new HPanel(200, 150, "header2"){
+				  @Override
+				  public void setContent(){
 					  PasswordTxtBox tbPass = new PasswordTxtBox(); 
 					  tbPass.setWidth("100px");
 					  tbPass.setMaxLength(30);
@@ -196,22 +217,36 @@ public class Navs extends Composite{
 						  });
 					  maskField.setValue(false, true);
 					  
+					  CheckBox enblFields = new CheckBox("Вкл/Выкл");
+					  enblFields.addValueChangeHandler(new ValueChangeHandler<Boolean>(){
+							@Override
+							public void onValueChange(ValueChangeEvent<Boolean> event) {
+								dropBox.setEnabled(event.getValue());
+								datebox.setEnabled(event.getValue());
+							}
+						  });
+					  enblFields.setValue(true, true);
+					  
 					  FlexTable layout = new FlexTable();
 					  layout.setCellPadding(2);
 					  layout.setHTML(0, 0, "password");
 					  layout.setWidget(0, 1, tbPass);
-					  layout.setWidget(1, 1, maskField);
+					  layout.setWidget(1, 0, maskField);
+					  layout.setWidget(1, 1, enblFields);
 					  layout.setHTML(2, 0, "dropbox");
 					  layout.setWidget(2, 1, dropBox);
 					  layout.setHTML(3, 0, "date");
 					  layout.setWidget(3, 1, datebox);
                       setContentWidget(layout);
-					  return this;
 				  }
-			  }.setContent());
+			  };
+			  panForm2.setContent();
+			  ft.setWidget(0, 1, panForm2);
+			  
 			  fcf.setColSpan(1, 0, 2);
-			  ft.setWidget(1, 0, new PanForm(408, 150, "header3"){
-				  public Widget setContent(){
+			  HPanel panForm3 = new HPanel(408, 150, "header3"){
+				  @Override
+				  public void setContent(){
 					  TextArea area = new TextArea(); 
 					  area.setVisibleLines(5);
 					  CheckBox enableArea = new CheckBox("enable Area");
@@ -228,9 +263,10 @@ public class Navs extends Composite{
 					  layout.setWidget(1, 0, area);
 					  layout.setCellPadding(2);
 					  setContentWidget(layout);
-					  return this;
 				  }
-			  }.setContent());
+			  };
+			  panForm3.setContent();
+			  ft.setWidget(1, 0, panForm3); 
 			  ft.setStyleName("padding1px");
 			  panForm.addBody(ft);
 		  }
