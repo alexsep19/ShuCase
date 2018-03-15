@@ -22,7 +22,8 @@ public class TitlePan extends Composite{
 		   titlePan.setStyleName("titleHeader");
 
 	}
-    public void addBody(Widget w){
+    public TitlePan addBody(Widget w){
     	pan.add(w);
+    	return this;
     }
 }

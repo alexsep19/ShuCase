@@ -11,6 +11,8 @@ import com.google.gwt.user.client.ui.SimpleLayoutPanel;
 import com.google.gwt.user.client.ui.SplitLayoutPanel;
 
 import shu.client.nav.NavPan;
+import shu.client.nav.Navs;
+import shu.client.tools.TitlePan;
 
 import com.google.gwt.user.client.Window;
 
@@ -37,7 +39,8 @@ public class startpoint implements EntryPoint {
 	    DockLayoutPanel outer = new DockLayoutPanel(Unit.PX);
 	    outer.addNorth(new TopPanel(), 40);
 	    SplitLayoutPanel split = new SplitLayoutPanel();
-	    split.addWest(new NavPan(center), 192);
+//	    split.addWest(new NavPan(center), 192);
+	    split.addWest(new TitlePan("Навигация").addBody(new Navs(center)), 192);
 	    split.add(center);
 	    outer.add(split);
 

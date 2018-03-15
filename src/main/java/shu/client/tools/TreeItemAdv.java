@@ -1,4 +1,4 @@
-package shu.client.nav;
+package shu.client.tools;
 
 import com.google.gwt.user.client.ui.TreeItem;
 
@@ -7,7 +7,7 @@ public class TreeItemAdv extends TreeItem {
 	public TreeItemAdv(){
 		super();
 	}
-    protected void doSelectionAction() {
+    public void doSelectionAction() {
     }
 }
 
