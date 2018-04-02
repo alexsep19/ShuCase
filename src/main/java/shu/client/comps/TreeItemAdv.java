@@ -1,4 +1,4 @@
-package shu.client.tools;
+package shu.client.comps;
 
 import com.google.gwt.user.client.ui.TreeItem;
 

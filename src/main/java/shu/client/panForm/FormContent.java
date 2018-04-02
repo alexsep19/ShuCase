@@ -17,7 +17,7 @@ import com.google.gwt.user.datepicker.client.DateBox;
 import shu.client.comps.Dialog1butt;
 import shu.client.comps.PasswordTxtBox;
 import shu.client.comps.TxtBox;
-import shu.client.tools.HPanel;
+import shu.client.comps.HPanel;
 
 public class FormContent extends Composite{
 	  TxtBox tbSurname = new TxtBox();
@@ -31,7 +31,7 @@ public class FormContent extends Composite{
 		  ft.setCellPadding(2);
 		  HPanel panForm1 = new HPanel(200, 150, "header1"){
 			  @Override
-			  public void setContent(){
+			  public HPanel setContent(){
 				  tbSurname.setWidth("100px");
 				  tbSurname.setMaxLength(30);
 				  tbSurname.setPlaceHolder("placeholder");
@@ -64,9 +64,10 @@ public class FormContent extends Composite{
 				  layout.setWidget(2, 1, turnCheck);
 				  layout.setWidget(3, 1, turnField);
 			      setContentWidget(layout);
+			      return this;
 			  }
-		  	};
-		  panForm1.setContent();
+		  	}.setContent();
+//		  panForm1.setContent();
 		  panForm1.addBut(new ClickHandler() {
 			  @Override
 			  public void onClick(ClickEvent event) {
@@ -94,7 +95,7 @@ public class FormContent extends Composite{
 		  
 		  HPanel panForm2 = new HPanel(200, 150, "header2"){
 			  @Override
-			  public void setContent(){
+			  public HPanel setContent(){
 				  PasswordTxtBox tbPass = new PasswordTxtBox(); 
 				  tbPass.setWidth("100px");
 				  tbPass.setMaxLength(30);
@@ -141,15 +142,17 @@ public class FormContent extends Composite{
 				  layout.setHTML(3, 0, "date");
 				  layout.setWidget(3, 1, datebox);
                 setContentWidget(layout);
+		      return this;
+
 			  }
-		  };
-		  panForm2.setContent();
+		  }.setContent();
+//		  panForm2.setContent();
 		  ft.setWidget(0, 1, panForm2);
 		  
 		  fcf.setColSpan(1, 0, 2);
 		  HPanel panForm3 = new HPanel(408, 150, "header3"){
 			  @Override
-			  public void setContent(){
+			  public HPanel setContent(){
 				  TextArea area = new TextArea(); 
 				  area.setVisibleLines(5);
 				  CheckBox enableArea = new CheckBox("enable Area");
@@ -166,9 +169,10 @@ public class FormContent extends Composite{
 				  layout.setWidget(1, 0, area);
 				  layout.setCellPadding(2);
 				  setContentWidget(layout);
+				  return this;
 			  }
-		  };
-		  panForm3.setContent();
+		  }.setContent();
+//		  panForm3.setContent();
 		  ft.setWidget(1, 0, panForm3); 
 		  ft.setStyleName("padding1px");
 		  initWidget(ft);

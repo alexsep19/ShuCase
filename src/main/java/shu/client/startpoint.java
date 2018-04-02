@@ -10,9 +10,8 @@ import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwt.user.client.ui.SimpleLayoutPanel;
 import com.google.gwt.user.client.ui.SplitLayoutPanel;
 
-import shu.client.nav.NavPan;
 import shu.client.nav.Navs;
-import shu.client.tools.TitlePan;
+import shu.client.comps.TitlePan;
 
 import com.google.gwt.user.client.Window;
 

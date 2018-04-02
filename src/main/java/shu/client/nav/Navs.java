@@ -13,9 +13,10 @@ import com.google.gwt.user.client.ui.SimpleLayoutPanel;
 import com.google.gwt.user.client.ui.Tree;
 import com.google.gwt.user.client.ui.TreeItem;
 
-import shu.client.tools.TitlePan;
-import shu.client.tools.TreeItemAdv;
+import shu.client.comps.TitlePan;
+import shu.client.comps.TreeItemAdv;
 import shu.client.panForm.FormContent;
+import shu.client.panTab.TabContent;
 
 public class Navs extends Composite{
 	SimpleLayoutPanel _center;
@@ -78,35 +79,31 @@ public class Navs extends Composite{
 	    addImageItem(root, "Trash", images.trash(), new TreeItemAdv());
 
 	    addImageItem(root2, "panForm", images.inbox(), new TreeItemAdv(){
-	    			@Override
-					public void doSelectionAction() {
-	    				showPanel(getPanForm());
-//	    				rootLogger.log(Level.INFO, "doSelectionAction() ");
+	    	@Override
+			public void doSelectionAction() {
+	    		showPanel(getPanForm());
 	    }});
 	    addImageItem(root2, "panTab", images.inbox(), new TreeItemAdv(){
 			@Override
 			public void doSelectionAction() {
 				showPanel(getPanTab());
-//				rootLogger.log(Level.INFO, "doSelectionAction() ");
         }});
 	    root2.setState(true);
-	    root2.getChild(0).setSelected(true);
+	    tree.setSelectedItem(root2.getChild(1), true);
 	    
 	    initWidget(tree);
-	    showPanel(getPanForm());
 	  }
 
-	  TitlePan getPanForm(){
+	  private TitlePan getPanForm(){
 		  if (panForm == null){
 			  panForm = new TitlePan("Форма").addBody(new FormContent());
 		  }
 		  return panForm;
 	  }
 	  
-	  TitlePan getPanTab(){
+	  private TitlePan getPanTab(){
 		  if (panTab == null){
-			  panTab = new TitlePan("Таблица");
-			  panTab.addBody(new HTMLPanel("Фjjjjjjjjjj Таблица"));
+			  panTab = new TitlePan("Таблица").addBody(new TabContent());
 		  }
 		  return panTab;
 	  }

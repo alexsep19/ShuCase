@@ -1,4 +1,4 @@
-package shu.client.tools;
+package shu.client.comps;
 
 import com.google.gwt.user.client.ui.HeaderPanel;
 import com.google.gwt.user.client.ui.HorizontalPanel;
@@ -15,7 +15,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.HasVerticalAlignment;
 
-    public class HPanel extends HeaderPanel{
+abstract public class HPanel extends HeaderPanel{
 	List<Button> _buts = new ArrayList();
     Label _header = new Label();
     HorizontalPanel _titlePan = new HorizontalPanel();
@@ -75,7 +75,9 @@ import com.google.gwt.user.client.ui.HasVerticalAlignment;
 		_buts.add(b);
 		_titlePan.add(b);
 	};
-	public void setContent(){};
+	public abstract HPanel setContent();
+//	{
+//		return null;};
 //	protected void handlerBody(ClickEvent event){};
 //	public void setBody(Widget w){
 //        setContentWidget(w);
