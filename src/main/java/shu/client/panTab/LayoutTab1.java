@@ -16,8 +16,10 @@ import com.google.gwt.view.client.DefaultSelectionEventManager;
 import com.google.gwt.view.client.HasData;
 import com.google.gwt.view.client.ListDataProvider;
 import com.google.gwt.view.client.MultiSelectionModel;
+import com.google.gwt.view.client.NoSelectionModel;
 import com.google.gwt.view.client.ProvidesKey;
 import com.google.gwt.view.client.SelectionModel;
+import com.google.gwt.view.client.SingleSelectionModel;
 
 public class LayoutTab1 extends Composite{
 	ProvidesKey<Data3field> _providesKey = new ProvidesKey<Data3field>(){
@@ -53,8 +55,13 @@ public class LayoutTab1 extends Composite{
 //	    SelectionModel<Data3field> selectionModel = new MultiSelectionModel<Data3field>(_providesKey);
 //	    _dataGrid.setSelectionModel(selectionModel, DefaultSelectionEventManager.<Data3field> createCheckboxManager());
 	    
+//	    SelectionModel<Data3field> selectionModel = new SingleSelectionModel<Data3field>(_providesKey);
+	    NoSelectionModel<Data3field> selectionModel = new NoSelectionModel<Data3field>(_providesKey);
+//	    selectionModel.addSelectionChangeHandler(handler)
+	    _dataGrid.setSelectionModel(selectionModel);
+	    
 	    _dataGrid.setPageSize(10);
-//	    _dataGrid.setRowCount(_data3field.getDataList().size());
+	    _dataGrid.setRowCount(_data3field.getDataList().size(), true);
 	    
 	    _dataProvider.addDataDisplay(_dataGrid);
 	    _dataProvider.updateRowCount(_data3field.getDataList().size(), true);
@@ -64,21 +71,13 @@ public class LayoutTab1 extends Composite{
 	}
 
 	private void initTableColumns(ListHandler<Data3field> sortHandler) {
-		Column<Data3field, String> nameColumn = new Column<Data3field, String>(new EditTextCell()) {
-	          @Override
-	          public String getValue(Data3field object) {
-	        	  return object.getName();
-			  }
+		Column<Data3field, String> nameColumn = new Column<Data3field, String>(null){
+			@Override
+			public String getValue(Data3field object) {
+				return object.getName();
+			}
 		};
 		_dataGrid.addColumn( nameColumn, "Наименование");
-//		nameColumn.setFieldUpdater(new FieldUpdater<Data3field, String>() {
-//			 @Override
-//	         public void update(int index, Data3field object, String value) {
-//	        // Called when the user changes the value.
-//	             object.setName(value);
-//	             _dataProvider.refresh();
-//			 }
-//	    });
-//	    _dataGrid.setColumnWidth(nameColumn, 20, Unit.PCT);
+	    _dataGrid.setColumnWidth(nameColumn, 20, Unit.PCT);
 	}
 }

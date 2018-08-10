@@ -67,7 +67,6 @@ public class FormContent extends Composite{
 			      return this;
 			  }
 		  	}.setContent();
-//		  panForm1.setContent();
 		  panForm1.addBut(new ClickHandler() {
 			  @Override
 			  public void onClick(ClickEvent event) {

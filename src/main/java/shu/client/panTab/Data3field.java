@@ -22,7 +22,7 @@ public class Data3field {
 
 	public void initDataList(){
 		for(int i = 0; i < 100; i++)
-		_dataList.add(new Data3field(i, "ddddddddd", new Double(i/10), new Date()));
+		_dataList.add(new Data3field(i, "ddddddddd"+i, new Double(i/10), new Date()));
 	}
 	
     public String getName() {
